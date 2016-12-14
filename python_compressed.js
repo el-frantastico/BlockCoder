@@ -1006,11 +1006,7 @@ Blockly.Python['hydra_system_start'] = function(block) {
                 'LEFT_SENSOR     = "s3"                                 \n' +
                 'BACK_SENSOR     = "s4"                                 \n' +
                 'READ_SENSOR     = "f"                                  \n' +
-<<<<<<< HEAD
                 'inString = "3333"                                         \n' +
-=======
-                'inString = " "                                         \n' +
->>>>>>> 483319dc7902b5b226e6fc0fe2849d4c6b58cdba
                 '                                                       \n' +
                 '#######  functions to start sensors  #######           \n' +
                 '## start front sensor                                  \n' +
@@ -1030,7 +1026,6 @@ Blockly.Python['hydra_system_start'] = function(block) {
                 '    ser.write(READ_SENSOR)                             \n' +
                 '    temp = \'0\'                                       \n' +
                 '    temp2 = \'1\'                                      \n' +
-<<<<<<< HEAD
                 '    t = inString                             \n' +
 		        '    t = ser.read()                              \n' +
                 '    t += ser.read()                             \n' +
@@ -1046,24 +1041,6 @@ Blockly.Python['hydra_system_start'] = function(block) {
                 '    return (t[1] == \'1\')                      \n' +
                 'def readBackSensor(t):                                  \n' +
                 '    return (t[3] == \'1\')                      \n' +
-=======
-                '    global inString;                                   \n' +
-                '    inString = ser.read()                              \n' +
-                '    while(not(inString==temp) or not(inString==temp2)) : \n' +
-                '        inString  = ser.read()                         \n' +
-                '    inString += ser.read()                             \n' +
-                '    inString += ser.read()                             \n' +
-                '    inString += ser.read()                             \n' +
-                '#######  functions to read sensors  #######            \n' +
-                'def readLeftSensor():                                  \n' +
-                '    return (inString[2] == \'1\')                      \n' +
-                'def readFrontSensor():                                 \n' +
-                '    return (inString[0] == \'1\')                      \n' +
-                'def readRightSensor():                                 \n' +
-                '    return (inString[1] == \'1\')                      \n' +
-                'def readBackSensor():                                  \n' +
-                '    return (inString[3] == \'1\')                      \n' +
->>>>>>> 483319dc7902b5b226e6fc0fe2849d4c6b58cdba
                 '#######  functions to control motors  #######          \n' +
                 '## move up                                             \n' +
                 'def moveUp() :                                         \n' +
@@ -1093,17 +1070,7 @@ Blockly.Python['hydra_system_start'] = function(block) {
                 '  nSet = False                                           \n' +
                 '  mSet = False                                           \n' +
                 '                                                       \n' +
-<<<<<<< HEAD
                 '  while(not(tSet and cSet and nSet and mSet)) :          \n' +
-=======
-                'ser.write(\'x\');                                      \n' +
-                'tSet = False                                           \n' +
-                'cSet = False                                           \n' +
-                'nSet = False                                           \n' +
-                'mSet = False                                           \n' +
-                '                                                       \n' +
-                'while(not(tSet and cSet and nSet and mSet)) :          \n' +
->>>>>>> 483319dc7902b5b226e6fc0fe2849d4c6b58cdba
                 '    ser.write(\'t10000\')                              \n' +
                 '    if(ser.read()==\'t\'):                             \n' +
                 '      tSet = True                                    \n' +
@@ -1115,7 +1082,6 @@ Blockly.Python['hydra_system_start'] = function(block) {
                 '      nSet = True                                    \n' +
                 '    ser.write(\'m10\')                                 \n' +
                 '    if(ser.read()==\'m\'):                             \n' +
-<<<<<<< HEAD
                 '      mSet = True                                    \n' +
                 '  isDoneCalib = \'\';                                    \n' +
                 '  while(True) :                                          \n' +
@@ -1126,15 +1092,6 @@ Blockly.Python['hydra_system_start'] = function(block) {
                 statements_user_behavior +'\n' +
                 'if __name__ == \"__main__\":                   \n' +
                 '  main()';
-=======
-                '        mSet = True                                    \n' +
-                'isDoneCalib = \'\';                                    \n' +
-                'while(True) :                                          \n' +
-                '        isDoneCalib = ser.read();                      \n' +
-                '        if(isDoneCalib == \'d\') :                     \n' +
-                '            break;                                     \n' +
-                'ser.flush();                                           \n';
->>>>>>> 483319dc7902b5b226e6fc0fe2849d4c6b58cdba
   return code;
 };
 
@@ -1228,7 +1185,6 @@ Blockly.Python['read_sensor'] = function(block) {
 Blockly.Python['get_sensor'] = function(block) {
   var dropdown_name = block.getFieldValue('sensor');
   if (dropdown_name.toString() == "left") {
-<<<<<<< HEAD
     var code = 'readLeftSensor(a)';
   } else if (dropdown_name.toString() == "front") {
     var code = 'readFrontSensor(a)';
@@ -1236,15 +1192,6 @@ Blockly.Python['get_sensor'] = function(block) {
     var code = 'readRightSensor(a)';
   } else if (dropdown_name.toString() == "back") {
     var code = 'readBackSensor(a)';
-=======
-    var code = 'readLeftSensor()';
-  } else if (dropdown_name.toString() == "front") {
-    var code = 'readFrontSensor()';
-  } else if (dropdown_name.toString() == "right") {
-    var code = 'readRightSensor()';
-  } else if (dropdown_name.toString() == "back") {
-    var code = 'readBackSensor()';
->>>>>>> 483319dc7902b5b226e6fc0fe2849d4c6b58cdba
   }
 
   return [code];
@@ -1253,7 +1200,6 @@ Blockly.Python['get_sensor'] = function(block) {
 Blockly.Python['explorer'] = function(block) {
   var code = 'startFront();                                          \n' +
              'while(ser.read()!=\'1\') :                             \n' +
-<<<<<<< HEAD
              '  startFront();                                      \n' +
              'startRight();                                          \n' +
              'while(ser.read()!=\'2\') :                             \n' +
@@ -1318,46 +1264,12 @@ Blockly.Python['explorer'] = function(block) {
              '  if(forward) :                                      \n' +
              '    moveForward();                                 \n' +
              '  sleep(2);                                          \n';
-=======
-             '    startFront();                                      \n' +
-             'startRight();                                          \n' +
-             'while(ser.read()!=\'2\') :                             \n' +
-             '    startRight();                                      \n' +
-             'startLeft();                                           \n' +
-             'while(ser.read()!=\'3\') :                             \n' +
-             '    startLeft();                                       \n' +
-             'moveForward();                                         \n' +
-             'while(True)   :                                        \n' +
-             '    readSensors();                                     \n' +
-             '    forward = False;                                   \n' +
-             '    frontSeen = readFrontSensor();                     \n' +
-             '    rightSeen = readRightSensor();                     \n' +
-             '    leftSeen = readLeftSensor();                       \n' +
-             '    if(frontSeen)  :                                   \n' +
-             '        if(rightSeen) :                                \n' +
-             '            if(leftSeen) :                             \n' +
-             '                moveBack();                            \n' +
-             '            else :                                     \n' +
-             '                moveLeft();                            \n' +
-             '        elif(leftSeen) :                               \n' +
-             '            moveRight();                               \n' +
-             '    elif(rightSeen) :                                  \n' +
-             '        if(leftSeen) :                                 \n' +
-             '            moveBack();                                \n' +
-             '        else :                                         \n' +
-             '            forward = True;                            \n' +
-             '    elif(leftSeen) :                                   \n' +
-             '        forward = True;                                \n' +
-             '    if(forward) :                                      \n' +
-             '        moveForward();                                 \n';
->>>>>>> 483319dc7902b5b226e6fc0fe2849d4c6b58cdba
   return code;
 };
 
 Blockly.Python['fearful'] = function(block) {
   var code = 'startFront();                                          \n' +
              'while(ser.read()!=\'1\') :                             \n' +
-<<<<<<< HEAD
              '  startFront();                                      \n' +
              'startRight();                                          \n' +
              'while(ser.read()!=\'2\') :                             \n' +
@@ -1395,50 +1307,12 @@ Blockly.Python['fearful'] = function(block) {
              '  else :                                             \n' +
              '      moveForward();                                 \n' +
              '  sleep(2);                                          \n';
-=======
-             '    startFront();                                      \n' +
-             'startRight();                                          \n' +
-             'while(ser.read()!=\'2\') :                             \n' +
-             '    startRight();                                      \n' +
-             'startLeft();                                           \n' +
-             'while(ser.read()!=\'3\') :                             \n' +
-             '    startLeft();                                       \n' +
-             'startBack();                                           \n' +
-             'while(ser.read()!=\'4\') :                             \n' +
-             '    startBack();                                       \n' +
-             'neutral();                                             \n' +
-             'while(True)   :                                        \n' +
-             '    readSensors();                                     \n' +
-             '    forward = False;                                   \n' +
-             '    frontSeen = readFrontSensor();                     \n' +
-             '    rightSeen = readRightSensor();                     \n' +
-             '    leftSeen = readLeftSensor();                       \n' +
-             '    rearSeen = readBackSensor();                       \n' +
-             '    if(frontSeen)  :                                   \n' +
-             '        if(rightSeen) :                                \n' +
-             '            if(leftSeen) :                             \n' +
-             '                moveBack();                            \n' +
-             '            else :                                     \n' +
-             '                moveLeft();                            \n' +
-             '        elif(leftSeen) :                               \n' +
-             '            moveRight();                               \n' +
-             '    elif(rightSeen) :                                  \n' +
-             '        if(leftSeen) :                                 \n' +
-             '            moveBack();                                \n' +
-             '        else :                                         \n' +
-             '            forward = True;                            \n' +
-             '    elif(leftSeen) :                                   \n' +
-             '        forward = True;                                \n' +
-             '    if(forward) :                                      \n' +
-             '        moveForward();                                 \n';
->>>>>>> 483319dc7902b5b226e6fc0fe2849d4c6b58cdba
   return code;
 };
 
 Blockly.Python['friendly'] = function(block) {
   var code = 'startFront();                                          \n' +
              'while(ser.read()!=\'1\') :                             \n' +
-<<<<<<< HEAD
              '  startFront();                                      \n' +
              'startRight();                                          \n' +
              'while(ser.read()!=\'2\') :                             \n' +
@@ -1494,49 +1368,3 @@ Blockly.Python['friendly'] = function(block) {
              // '                elif(rightSeen) :                          \n' +
              // '                    moveRight();                           \n' +
              // '                    forward=False;                         \n' +
-=======
-             '    startFront();                                      \n' +
-             'startRight();                                          \n' +
-             'while(ser.read()!=\'2\') :                             \n' +
-             '    startRight();                                      \n' +
-             'startLeft();                                           \n' +
-             'while(ser.read()!=\'3\') :                             \n' +
-             '    startLeft();                                       \n' +
-             'startBack();                                           \n' +
-             'while(ser.read()!=\'4\') :                             \n' +
-             '    startBack();                                       \n' +
-             'neutral();                                             \n' +
-             'turnAround = False;                                    \n' +
-             'while(True)   :                                        \n' +
-             '    readSensors();                                     \n' +
-             '    forward = False;                                   \n' +
-             '    frontSeen = readFrontSensor();                     \n' +
-             '    rightSeen = readRightSensor();                     \n' +
-             '    leftSeen = readLeftSensor();                       \n' +
-             '    rearSeen = readBackSensor();                       \n' +
-             '    if(turnAround) :                                   \n' +
-             '        if(frontSeen) :                                \n' +
-             '            turnAround = False;                        \n' +
-             '            moveForward();                             \n' +
-             '        else :                                         \n' +
-             '            moveRight();                               \n' +
-             '    else :                                             \n' +
-             '        if(frontSeen)  :                               \n' +
-             '            if(rightSeen) :                            \n' +
-             '                if(leftSeen) :                         \n' +
-             '                    forward = True;                    \n' +
-             '                else :                                 \n' +
-             '                    forward = True;                    \n' +
-             '            elif(leftSeen) :                           \n' +
-             '                forward = True;                        \n' +
-             '            elif(rightSeen) :                          \n' +
-             '                moveRight();                           \n' +
-             '        elif(leftSeen) :                               \n' +
-             '            moveLeft();                                \n' +
-             '        elif(rearSeen) :                               \n' +
-             '            turnAround = True;                         \n' +
-             '        if(forward) :                                  \n' +
-             '            moveForward();                             \n';
-  return code;
-};
->>>>>>> 483319dc7902b5b226e6fc0fe2849d4c6b58cdba

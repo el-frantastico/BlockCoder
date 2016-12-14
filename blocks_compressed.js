@@ -2494,7 +2494,6 @@ Blockly.Blocks['shine_sensors'] = {
   }
 };
 
-<<<<<<< HEAD
 Blockly.Blocks['read_sensor'] = {
   init: function() {
     this.appendDummyInput()
@@ -2502,36 +2501,6 @@ Blockly.Blocks['read_sensor'] = {
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour(210);
-=======
-Blockly.Blocks['explorer'] = {
-  init: function() {
-    this.appendDummyInput()
-        .appendField("Explorer Behavior");
-    this.setPreviousStatement(true, null);
-    this.setNextStatement(true, null);
-    this.setTooltip('');
-    this.setHelpUrl('http://www.example.com/');
-  }
-};
-
-Blockly.Blocks['fearful'] = {
-  init: function() {
-    this.appendDummyInput()
-        .appendField("Fearful Behavior");
-    this.setPreviousStatement(true, null);
-    this.setNextStatement(true, null);
-    this.setTooltip('');
-    this.setHelpUrl('http://www.example.com/');
-  }
-};
-
-Blockly.Blocks['friendly'] = {
-  init: function() {
-    this.appendDummyInput()
-        .appendField("Friendly Behavior");
-    this.setPreviousStatement(true, null);
-    this.setNextStatement(true, null);
->>>>>>> 483319dc7902b5b226e6fc0fe2849d4c6b58cdba
     this.setTooltip('');
     this.setHelpUrl('http://www.example.com/');
   }
